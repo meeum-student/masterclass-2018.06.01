@@ -4,7 +4,7 @@
 
 :root {
   --color-almost-white: #e8eef4;
-  
+
   --color-primary-a: #63dbc1;
   --color-primary-b: #4952a3;
   --color-primary-c: #ff5b5e;
@@ -14,11 +14,38 @@
   --color-secondary-c: #97a4b1;
   --color-secondary-d: #319bf5;
   --color-secondary-e: #34495e;
+
+
+  --main-text-color: var(--color-secondary-e);
+  --heading-text-color: var(--color-secondary-b);
+  --alternative-text-color: var(--color-almost-white);
+  --error-color: var(--color-primary-c);
+
+
+  --main-bg-color: var(--color-almost-white);
+  --secondary-bg-color: var(--color-almost-white);
+  --alternative-bg-color: var(--color-primary-b);
+
+
+  --padder: 3%;
+  --spacer: 20px;
+  --spacer-large: 80px;
+  --transition-time: 0.3s;
+
+  --font-size-site-title: 32px;
+  --font-size-page-title: 40px;
+  --font-size-section-title: 30px; 
+  --font-size-sub-title: 24px;
+  --font-size-heading-small: 16px;
+  --font-size-detail-copy: 14px;
+
+  --area-wide: 1200px;
+  --area-narrow: 800px;
 }
 
 
 header {
-  background-color: #4952a3;
+  background-color: var(--alternative-bg-color);
 }
 
 footer {
