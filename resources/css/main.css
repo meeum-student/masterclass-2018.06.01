@@ -1,6 +1,7 @@
-/******************************************************************************************
-*VARIABLES
-******************************************************************************************/
+@import url("https://fonts.googleapis.com/css?family=Karla|Rubik:500|Pacifico");
+
+
+/* -------------------- VARIABLES */
 
 :root {
   --color-almost-white: #e8eef4;
@@ -26,6 +27,9 @@
   --secondary-bg-color: var(--color-almost-white);
   --alternative-bg-color: var(--color-primary-b);
 
+  --font-heading: "Rubik", sans-serif;
+	--font-default: "Karla", sans-serif;
+
 
   --padder: 3%;
   --spacer: 20px;
@@ -42,47 +46,439 @@
   --area-wide: 1200px;
   --area-narrow: 800px;
 }
+@media screen and (min-width: 800px) {
+  :root {
+    --font-size-site-title: 54px;
+    --font-size-page-title: 80px;
+    --font-size-section-title: 48px;
 
+    --padder: 2%;
+  }
+}
+
+
+/* -------------------- GLOBAL DEFAULTS */
+/* box model fix */
+* {
+	box-sizing: border-box;
+}
+
+/* let's talk about font stacks */
+body {
+	font-family: var(--font-default);
+	line-height: 1.4;
+	color: var(--main-text-color);
+	font-size: 18px;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* -------------------- HEADINGS AND TYPE */
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--font-heading);
+  color: var(--heading-text-color);
+  font-weight: normal;
+}
+
+h1{
+  font-size: var(--font-size-page-title);
+  line-height: 1;
+  letter-spacing: 0.6px;
+}
+
+h2 {
+  font-size: var(--font-size-section-title);
+  line-height: 1.2;
+  letter-spacing: 0.6px;
+}
+
+h3 {
+  font-size: var(--font-size-sub-title);
+}
+
+h4 {
+  font-size: var(--font-size-heading-small);
+  text-transform: uppercase;
+}
+
+h5 {
+  font-size: var(--font-size-detail-copy);
+  line-height: 1rem;
+}
+
+/* links */
+
+a {
+  color: var(--color-primary-c);
+}
+
+a:hover,
+a:focus {
+  color: var(--color-secondary-b);
+}
+
+a:visited {
+  color: var(--color-secondary-b);
+}
+
+/* -------------------- LAYOUTS */
+.layout-full-width,
+.layout-wide,
+.layout-narrow {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--spacer-large);
+  padding: 0 var(--padder);
+}
+
+.layout-full-width {
+  max-width: 2000px;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.layout-wide {
+  max-width: var(--area-wide);
+}
+
+.layout-narrow {
+  max-width: var(--area-narrow);
+}
+
+
+/* -------------------- HEADER */
 
 header {
+  padding-top: var(--padder);
   background-color: var(--alternative-bg-color);
 }
 
-footer {
-  background-color: #4952a3;
+header .layout-wide {
+  overflow: hidden; /* float hack*/
+  margin-bottom: 0;
+}
+
+.logo-wrapper {
+  width: 20%;
+  float: left;
+}
+
+.logo-wrapper a:hover img {
+  animation: spin 0.5s linear;
+}
+
+.logo {
+  max-width: 50px;
+  width: 100%;
+}
+
+.site-title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-site-title);
+  color: var(--alternative-text-color);
+  color: #fff;
+  font-weight: 700;
+  width: 80%;
+  float: right;
+  text-align: right;
+}
+
+/* -------------------- NAVIGATION */
+
+.navigation {
+  position: sticky; /* come back to this */
+  top: 0;
+  z-index: 10;
+
+  background-color: var(--alternative-bg-color);
+}
+
+.nav-prompt {
+  padding: var(--padder) 0;
+  width: 100%;
+  background-color: var(--alternative-bg-color);
+  color: var(--alternative-text-color);
+  border-top: 1px solid #34495e;
+}
+
+@media screen and (min-width: 800px) {
+  .navigation {
+    padding: 20px 0;
+  }
+  .nav-prompt {
+    display: none;
+  }
 }
 
 
-/******************************************************************************************
-*HEADINGS AND TYPE
-******************************************************************************************/
+
+.nav-inner {
+  clear: both;
+  transition: 0.2s ease-in-out;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.nav-inner ul {
+  padding: 0 var(--padder);
+  padding: 0;
+  margin: 0;
+}
+
+.nav-inner[aria-expanded="false"] {
+  max-height: 0;
+}
+
+@media screen and (min-width: 800px) {
+  .nav-inner[aria-expanded="false"] {
+    max-height: 100vh;
+  }
+}
+
+.nav-inner[aria-expanded="true"] {
+  max-height: 100vh;
+}
+
+.nav-inner li {
+  text-align: center;
+  list-style: none;
+}
+
+.nav-inner a {
+  color: var(--alternative-text-color);
+  font-family: var(--font-heading);
+  padding: 20px 5px;
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  border-bottom: 1px solid var(--color-secondary-c);
+
+  transition: all var(--transition-time);
+}
+
+@media screen and (min-width: 800px) {
+  .nav-inner a {
+    border-bottom: 2px solid transparent;
+    padding: 0;
+  }
+}
+
+.nav-inner .active {
+  border-bottom-color: currentColor;
+  font-weight: 700;
+  color: #fff;
+}
+
+.nav-inner a:hover,
+.nav-inner a:focus {
+  color: #fff;
+  border-bottom-color: currentColor;
+}
+
+@media screen and (min-width: 800px) {
+  .nav-inner ul {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+/* -------------------- FOOTER */
+
+footer {
+  background-color: var(--alternative-bg-color);
+}
+
+.footer-subscribe {
+  background-color: var(--secondary-bg-color);
+  padding: var(--spacer-large) 0;
+  text-align: center;
+}
+
+.footer-notices {
+  background-color: var(--alternative-bg-color);
+  padding: var(--spacer) 0;
+}
+
+.footer-notices .layout-wide {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.copyright {
+  color: #fff;
+}
 
 
-/******************************************************************************************
-*LAYOUTS
-******************************************************************************************/
+/* social */
+/*https://simpleicons.org*/
+.social-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.social-links li {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.social-links img {
+  width: 100%;
+  height: 100%;
+}
+
+.social-link {
+  max-width: 30px;
+  display: block;
+  transform: scale(0.8);
+  transition: all var(--transition-time);
+}
+.social-link:hover {
+  filter: unset;
+  transform: scale(1);
+}
+
+@media screen and (min-width: 800px) {
+  .footer-notices .layout-wide {
+    display: grid;
+    grid-template-columns: 48% 48%;
+    justify-content: space-around;
+    align-items: center;
+    text-align: left;
+  }
+
+  .social-links {
+    text-align: right;
+  }
+}
+
+/* -------------------- FORMS */
+
+label {
+  display: block;
+  font-weight: 700;
+}
+
+/* https://css-tricks.com/styling-texty-inputs-only/ */
+
+input:not([type="submit"]):not([type="file"]) {
+  border: 1px solid var(--color-secondary-c);
+  border-radius: 4px; /* could use a variable here*/
+  background-color: #fff;
+  padding: 10px;
+  width: 480px;
+  max-width: 100%;
+  margin-bottom: var(--spacer);
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer; /* talk about this */
+  border: none; /* talk about this too */
+}
+
+.button {
+  font-family: var(--font-heading);
+  color: var(--heading-text-color);
+  background-color: var(--color-primary-a);
+  border-radius: 4rem;
+  padding: 1rem;
+  min-width: 208px;
+  font-size: var(--font-size-heading-small);
+  text-transform: uppercase;
+}
+
+.button:hover {
+  background-color: var(--color-secondary-a);
+}
+
+/* mailchimp overrides*/
+#mc_embed_signup input.mce_inline_error {
+  border-color: var(--error-color) !important ;
+}
+#mc_embed_signup div.mce_inline_error {
+  background-color: transparent !important;
+  color: var(--error-color) !important;
+}
+
+/* -------------------- MODULES */
 
 
-/******************************************************************************************
-*HEADER
-******************************************************************************************/
+/* iframe */
 
+.iframe-container {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  padding-top: 35px;
+}
 
-/******************************************************************************************
-*NAVIGATION
-******************************************************************************************/
+.iframe-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 
+/* hero */
+.hero-module img {
+  width: 100%; 
+  /* we're making this 100% in case some of 
+  our images aren't super wide*/ 
+}
 
-/******************************************************************************************
-*FOOTER
-******************************************************************************************/
+@media screen and (min-width: 800px) {
+  .hero-content {
+    position: relative;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    height: 100%;
+  }
 
+  .hero-content {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    padding: 4rem 2rem 2rem 2rem;
+  }
 
-/******************************************************************************************
-*FORMS
-******************************************************************************************/
+  .hero-content .heading-main,
+  .hero-content p {
+    color: #fff;
 
+    text-shadow: 0px 1px 10px var(--color-secondary-b);
 
-/******************************************************************************************
-*individual 
-******************************************************************************************/
+    /* https://designshack.net/articles/css/12-fun-css-text-shadows-you-can-copy-and-paste/ */
+  }
+}
+
+/* grids */
+
+@media screen and (min-width: 800px) {
+  .content-area-grid {
+    display: grid;
+    grid-template-columns: 48% 48%;
+    justify-content: space-between;
+  }
+
+  .content-area-grid-narrow {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+    justify-content: space-between;
+  }
+}

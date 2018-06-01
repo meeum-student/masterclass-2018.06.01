@@ -1,3 +1,4 @@
+cssVars();
 
 
 
@@ -12,50 +13,40 @@
 
 
 
-
-
-
-
-
-
-
-// nav
-function active_menu() {
-    var url = window.location.href;
-    $(".nav-inner a")
-      .filter(function() {
-        return this.href == url;
-      })
-      .addClass("active");
-}
-
-active_menu();
 
 
 
 // open mobile menu
-$(".nav-prompt").click(function () {
-  $(".nav-inner").attr("aria-expanded", function(index, attr) {
-    return attr == "true" ? "false" : "true";
-  });
 
-  // if ($(".nav-prompt").text() == "Open Navigation") {
-  //   $(this).text("Close Navigation").addClass('nav-is-open').removeClass('nav-is-closed');
-  // } else {
-  //   $(this).text("Open Navigation").addClass("nav-is-closed").removeClass("nav-is-open");;
-  // }; 
+$('.nav-prompt').click(function () {
 
-  if ($(".nav-prompt").text() == "Open Navigation") {
-    $(this).text("Close Navigation");
+  // this changes the 'aria-expanded' attribute, which then triggers CSS to open or close the nav
+
+  if ($('.nav-inner').attr('aria-expanded') === 'false') {
+    $('.nav-inner').attr('aria-expanded', 'true');
   } else {
-    $(this).text("Open Navigation");
-  }; 
+    $('.nav-inner').attr('aria-expanded', 'false');
+  };
 
-  
+  // this changes the text on the button, so it's obvious what to do
+  if ($('.nav-prompt').text() == 'Open Navigation') {
+    $('.nav-prompt').text('Close Navigation');
+  } else {
+    $('.nav-prompt').text('Open Navigation');
+  };
 });
 
+// nav
+function active_menu() {
+  var url = window.location.href;
+  $(".nav-inner a")
+    .filter(function () {
+      return this.href == url;
+    })
+    .addClass("active");
+}
 
-
+active_menu();
 
 //iframe
 
@@ -78,18 +69,6 @@ function imageGallery() {
 }
 
 imageGallery();
-
-// TODO - unfuck this
-// // load video
-// function loadVideo() {
- 
-//   $('.load-later').attr("src", $(this).attr("data-src"));
-//   //$(".load-later").removeAttr("data-src");
-
-  
-// }
-
-// loadVideo();
 
 
 
