@@ -1,9 +1,131 @@
-header {
-    background-color: #4952a3;
+/* ------------------------- VARIABLES */
+
+:root {
+
+    --color-almost-white: #e8eef4;
+
+    --color-primary-a: #63dbc1;
+    --color-primary-b: #4952a3;
+    --color-primary-c: #ff5b5e;
+
+    --color-secondary-a: #53c1a9;
+    --color-secondary-b: #28313b;
+    --color-secondary-c: #97a4b1;
+    --color-secondary-d: #319bf5;
+    --color-secondary-e: #34495e;
+
+    --main-text-color: var(--color-secondary-e);
+    --heading-text-color: var(--color-secondary-b);
+    --alternative-text-color: var(--color-almost-white);
+    --error-color: var(--color-primary-c);
+
+    --secondary-bg-color: var(--color-almost-white);
+    --alternative-bg-color: var(--color-primary-b);
+    
+
+    --font-heading: "Rubik", sans-serif;
+    --font-default: "Karla", sans-serif;
+
+    /* font sizes */
+    --font-size-site-title: 32px;
+
+
+    /* measurement */
+    --spacer: 20px;
+    --spacer-large: 80px;
+    --padder: 3%;
+}
+/* ------------------------- GLOBAL DEFAULTS */
+* {
+    box-sizing: border-box;
 }
 
-footer {
-    background-color: #4952a3;
+
+img,
+video {
+    max-width: 100%;
+    height: auto;
 }
+
+body {
+    font-family: var(--font-default);
+    line-height: 1.4;
+    color: var(--main-text-color);
+    font-size: 18px;
+}
+/* ------------------------- HEADINGS AND TYPE */
+
+/* ------------------------- LAYOUTS */
+.layout-wide,
+.layout-full-width {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--spacer-large);
+    padding: 0 var(--padder);
+}
+
+.layout-full-width {
+    max-width: 2000px;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.layout-wide {
+    max-width: 1200px;
+}
+
+
+/* ------------------------- HEADER */
+
+
+header {
+    background-color: var(--alternative-bg-color);
+    padding-top: var(--padder);
+}
+
+header .layout-wide {
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+.logo-wrapper {
+    width: 20%;
+    float: left;
+}
+
+.logo {
+    max-width: 50px;
+}
+
+.site-title {
+    font-family: var(--font-heading);
+    color: var(--alternative-text-color);
+    width: 80%;
+    float: right;
+    text-align: right;
+    font-size: var(--font-size-site-title);
+}
+
+/* ------------------------- NAVIGATION */
+
+
+
+/* ------------------------- FOOTER */
+
+footer {
+    background-color: var(--alternative-bg-color);
+}
+
+/* ------------------------- FORMS */
+
+
+/* ------------------------- MODULES */
+
+
+
+
+
+
 
 /* this is a comment */
