@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Karla|Rubik:500');
+
 /* ------------------------- VARIABLES */
 
 :root {
@@ -82,6 +84,43 @@ body {
   font-size: 18px;
 }
 /* ------------------------- HEADINGS AND TYPE */
+h1,
+h2,
+h3,
+h4 {
+   font-family: var(--font-heading);
+   color: var(--heading-text-color);
+   font-weight: normal; 
+}
+
+h1 {
+    font-size: var(--font-size-page-title);
+}
+
+h2 {
+    font-size: var(--font-size-section-title);
+}
+
+h3 {
+    font-size: var(--font-size-sub-title);
+}
+
+/* links */
+
+a {
+    color: var(--color-primary-c);
+}
+
+a:hover,
+a:visited {
+    color: var(--color-secondary-b);
+}
+
+
+
+
+
+
 
 /* ------------------------- LAYOUTS */
 .layout-wide,
@@ -139,6 +178,85 @@ header .layout-wide {
 
 footer {
   background-color: var(--alternative-bg-color);
+}
+
+.footer-subscribe {
+    background-color: var(--secondary-bg-color);
+    padding-top: var(--spacer-large);
+    padding-bottom: var(--spacer-large);
+    text-align: center;
+}
+
+.footer-notices {
+    padding-top: var(--spacer-large);
+    padding-bottom: var(--spacer-large);
+}
+
+.footer-notices .layout-wide {
+    text-align: center;
+}
+
+.copyright {
+    color: #fff;
+}
+
+/* socail icons */
+.social-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.social-links li {
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.social-links img {
+    width: 100%;
+    height: 100%;
+}
+
+.social-links a {
+    max-width: 30px;
+    display: block;
+    transform: scale(0.8);
+    transition: all var(--transition-time);
+}
+
+.social-links a:hover {
+    transform: scale(1);
+}
+
+/* subsscrive forms */
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type=text],
+input[type=email] {
+    border: 1px solid var(--color-secondary-c);
+    border-radius: 4px;
+    padding: 10px;
+    width: 480px;
+    max-width: 100%;
+    margin-bottom: var(--spacer);
+}
+
+input[type=submit] {
+    border: none;
+    font-family: var(--font-heading);
+    background-color: var(--color-primary-a);
+    text-transform: uppercase;
+    padding: 20px;
+    border-radius: 30px;
+    min-width: 208px;
+}
+
+input[type=submit]:hover {
+    background-color: var(--color-secondary-a);
 }
 
 /* ------------------------- FORMS */
